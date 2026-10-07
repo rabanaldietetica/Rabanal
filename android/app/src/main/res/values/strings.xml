@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Rabanal</string>
+    <string name="title_activity_main">Rabanal</string>
+    <string name="package_name">com.rabanal.dietetica</string>
+    <string name="custom_url_scheme">com.rabanal.dietetica</string>
+</resources>
