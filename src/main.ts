@@ -35,6 +35,39 @@ const gallery = Array.from({ length: 33 }, (_, index) => {
   `;
 }).join("");
 
+
+const multivitamins = Array.from({ length: 71 }, (_, index) => {
+  const number = String(index + 41).padStart(4, "0");
+
+  return `
+    <article class="multivitamin-card">
+      <button
+        class="multivitamin-image"
+        type="button"
+        data-image="/images/IMG-20261008-WA${number}.jpg"
+        aria-label="Ver multivitamínico en tamaño completo"
+      >
+        <img
+          src="/images/IMG-20261008-WA${number}.jpg"
+          alt="Multivitamínico Dietética Rabanal"
+          loading="lazy"
+        />
+      </button>
+
+      <div class="multivitamin-info">
+        <span>Multivitamínico</span>
+        <a
+          href="${whatsappUrl}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Consultar
+        </a>
+      </div>
+    </article>
+  `;
+}).join("");
+
 const productsHtml = products
   .map(
     (product, index) => `
@@ -61,6 +94,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
         <a href="#inicio">Inicio</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#productos">Productos</a>
+        <a href="#multivitaminicos">Multivitamínicos</a>
         <a href="#galeria">Galería</a>
         <a href="#visitanos">Visitanos</a>
       </nav>
@@ -270,6 +304,81 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
       </div>
     </section>
 
+
+    <section class="section multivitamin-section" id="multivitaminicos">
+      <div class="section-header">
+        <p class="section-label">Nueva selección</p>
+
+        <h2>
+          Multivitamínicos.
+          <em>71 opciones para descubrir.</em>
+        </h2>
+
+        <p>
+          Conocé nuestra selección de multivitamínicos. Tocá cualquier producto
+          para verlo en detalle y consultanos por WhatsApp.
+        </p>
+      </div>
+
+      <div class="multivitamin-feature">
+        <div class="multivitamin-feature-images">
+          <button class="multivitamin-image" type="button"
+            data-image="/images/IMG-20261008-WA0041.jpg">
+            <img src="/images/IMG-20261008-WA0041.jpg"
+              alt="Multivitamínico Dietética Rabanal" loading="lazy" />
+          </button>
+
+          <button class="multivitamin-image" type="button"
+            data-image="/images/IMG-20261008-WA0042.jpg">
+            <img src="/images/IMG-20261008-WA0042.jpg"
+              alt="Multivitamínico Dietética Rabanal" loading="lazy" />
+          </button>
+
+          <button class="multivitamin-image" type="button"
+            data-image="/images/IMG-20261008-WA0043.jpg">
+            <img src="/images/IMG-20261008-WA0043.jpg"
+              alt="Multivitamínico Dietética Rabanal" loading="lazy" />
+          </button>
+        </div>
+
+        <div class="multivitamin-feature-copy">
+          <span class="multivitamin-count">71 PRODUCTOS</span>
+
+          <h3>Una selección completa de multivitamínicos.</h3>
+
+          <p>
+            Explorá nuestra colección y consultanos directamente para conocer
+            disponibilidad, marcas y precios.
+          </p>
+
+          <a class="button button-primary" href="#catalogo-multivitaminicos">
+            Ver los 71 productos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section multivitamin-catalog-section"
+      id="catalogo-multivitaminicos">
+
+      <div class="section-header">
+        <p class="section-label">Catálogo</p>
+
+        <h2>
+          Todos los
+          <em>multivitamínicos.</em>
+        </h2>
+
+        <p>
+          Seleccioná una imagen para verla en tamaño completo.
+        </p>
+      </div>
+
+      <div class="multivitamin-grid">
+        ${multivitamins}
+      </div>
+    </section>
+
     <section class="section gallery-section" id="galeria">
       <div class="section-header">
         <p class="section-label">Conocé Rabanal</p>
@@ -458,6 +567,23 @@ document.querySelectorAll<HTMLImageElement>(".zoomable-image").forEach((image) =
     document.body.classList.add("no-scroll");
   });
 });
+
+
+
+document
+  .querySelectorAll<HTMLButtonElement>(".multivitamin-image")
+  .forEach((item) => {
+    item.addEventListener("click", () => {
+      const image = item.dataset.image;
+
+      if (!image || !lightbox || !lightboxImage) return;
+
+      lightboxImage.src = image;
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("no-scroll");
+    });
+  });
 
 lightboxClose?.addEventListener("click", closeLightbox);
 

@@ -1137,3 +1137,222 @@ button:focus-visible {
 .zoomable-image:hover {
   transform: scale(1.02);
 }
+
+/* =========================================================
+   CATÁLOGO PREMIUM DE MULTIVITAMÍNICOS
+   ========================================================= */
+
+.multivitamin-section {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(196, 154, 90, 0.12), transparent 32%),
+    linear-gradient(135deg, var(--burgundy-deep), var(--burgundy));
+  color: var(--cream-light);
+}
+
+.multivitamin-section .section-label {
+  color: #e5bd76;
+}
+
+.multivitamin-section .section-header h2,
+.multivitamin-section .section-header p {
+  color: var(--cream-light);
+}
+
+.multivitamin-feature {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 42px;
+  align-items: center;
+  margin-top: 50px;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  background: rgba(255, 248, 239, 0.06);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.22);
+}
+
+.multivitamin-feature-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.multivitamin-image {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--cream-light);
+  cursor: zoom-in;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
+}
+
+.multivitamin-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: var(--cream-light);
+  transition: transform 0.35s ease;
+}
+
+.multivitamin-image:hover img {
+  transform: scale(1.045);
+}
+
+.multivitamin-feature-copy {
+  padding: 12px 10px;
+}
+
+.multivitamin-count {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 13px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: rgba(196, 154, 90, 0.18);
+  border: 1px solid rgba(229, 189, 118, 0.35);
+  color: #e5bd76;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.multivitamin-feature-copy h3 {
+  margin: 0 0 16px;
+  color: var(--cream-light);
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+
+.multivitamin-feature-copy p {
+  margin: 0 0 28px;
+  color: rgba(255, 248, 239, 0.78);
+  line-height: 1.75;
+}
+
+.multivitamin-catalog-section {
+  background: var(--cream-light);
+}
+
+.multivitamin-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 45px;
+}
+
+.multivitamin-card {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(100, 24, 45, 0.09);
+  box-shadow: 0 12px 35px rgba(61, 13, 27, 0.09);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.multivitamin-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 45px rgba(61, 13, 27, 0.15);
+}
+
+.multivitamin-card .multivitamin-image {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.multivitamin-card .multivitamin-image img {
+  aspect-ratio: 1 / 1;
+}
+
+.multivitamin-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 15px 16px;
+}
+
+.multivitamin-info span {
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.multivitamin-info a {
+  flex-shrink: 0;
+  color: var(--burgundy);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.multivitamin-info a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .multivitamin-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .multivitamin-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .multivitamin-feature {
+    gap: 26px;
+    margin-top: 32px;
+    padding: 16px;
+    border-radius: 24px;
+  }
+
+  .multivitamin-feature-images {
+    gap: 8px;
+  }
+
+  .multivitamin-feature-copy {
+    padding: 4px 5px 10px;
+  }
+
+  .multivitamin-feature-copy h3 {
+    font-size: 1.75rem;
+  }
+
+  .multivitamin-feature-copy p {
+    font-size: 0.94rem;
+  }
+
+  .multivitamin-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .multivitamin-card {
+    border-radius: 17px;
+  }
+
+  .multivitamin-info {
+    padding: 10px 10px 12px;
+    align-items: flex-start;
+  }
+
+  .multivitamin-info span {
+    font-size: 0.72rem;
+    line-height: 1.25;
+  }
+
+  .multivitamin-info a {
+    font-size: 0.68rem;
+  }
+}
+
