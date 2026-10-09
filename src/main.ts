@@ -36,19 +36,21 @@ const gallery = Array.from({ length: 33 }, (_, index) => {
 }).join("");
 
 
-const multivitamins = Array.from({ length: 71 }, (_, index) => {
-  const number = String(index + 41).padStart(4, "0");
+const multivitamins = Array.from({ length: 110 }, (_, index) => {
+  const date = index < 71 ? "20261008" : "20261009";
+  const number = String(index < 71 ? index + 41 : index - 71 + 39).padStart(4, "0");
+  const imagePath = `/images/IMG-${date}-WA${number}.jpg`;
 
   return `
     <article class="multivitamin-card">
       <button
         class="multivitamin-image"
         type="button"
-        data-image="/images/IMG-20261008-WA${number}.jpg"
+        data-image="${imagePath}"
         aria-label="Ver multivitamínico en tamaño completo"
       >
         <img
-          src="/images/IMG-20261008-WA${number}.jpg"
+          src="${imagePath}"
           alt="Multivitamínico Dietética Rabanal"
           loading="lazy"
         />
