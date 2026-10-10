@@ -36,6 +36,22 @@ const gallery = Array.from({ length: 33 }, (_, index) => {
 }).join("");
 
 
+const newMultivitamins = Array.from({ length: 39 }, (_, index) => {
+  const number = String(index + 11).padStart(4, "0");
+  const imagePath = `/images/IMG-20261010-WA${number}.jpg`;
+  return `
+    <article class="multivitamin-card">
+      <button class="multivitamin-image" type="button" data-image="${imagePath}" aria-label="Ver multivitamínico en tamaño completo">
+        <img src="${imagePath}" alt="Multivitamínico Dietética Rabanal" loading="lazy" />
+      </button>
+      <div class="multivitamin-info">
+        <span>Multivitamínico</span>
+        <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">Consultar</a>
+      </div>
+    </article>
+  `;
+}).join("");
+
 const multivitamins = Array.from({ length: 110 }, (_, index) => {
   const date = index < 71 ? "20261008" : "20261009";
   const number = String(index < 71 ? index + 41 : index - 71 + 39).padStart(4, "0");
@@ -313,7 +329,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 
         <h2>
           Multivitamínicos.
-          <em>71 opciones para descubrir.</em>
+          <em>149 opciones para descubrir.</em>
         </h2>
 
         <p>
@@ -344,7 +360,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
         </div>
 
         <div class="multivitamin-feature-copy">
-          <span class="multivitamin-count">71 PRODUCTOS</span>
+          <span class="multivitamin-count">149 PRODUCTOS</span>
 
           <h3>Una selección completa de multivitamínicos.</h3>
 
@@ -354,7 +370,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
           </p>
 
           <a class="button button-primary" href="#catalogo-multivitaminicos">
-            Ver los 71 productos
+            Ver los 149 productos
           </a>
         </div>
       </div>
@@ -377,7 +393,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
       </div>
 
       <div class="multivitamin-grid">
-        ${multivitamins}
+        ${multivitamins}${newMultivitamins}
       </div>
     </section>
 
