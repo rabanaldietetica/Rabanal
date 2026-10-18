@@ -86,6 +86,37 @@ const multivitamins = Array.from({ length: 110 }, (_, index) => {
   `;
 }).join("");
 
+const oct16Numbers = [
+  ...Array.from({ length: 64 }, (_, i) => i + 18),
+  ...Array.from({ length: 16 }, (_, i) => i + 90),
+];
+
+const oct16Multivitamins = oct16Numbers.map((number) => {
+  const imagePath = `/images/IMG-20261016-WA${String(number).padStart(4, "0")}.jpg`;
+
+  return `
+    <article class="multivitamin-card">
+      <button
+        class="multivitamin-image"
+        type="button"
+        data-image="${imagePath}"
+        aria-label="Ver suplemento en tamaño completo"
+      >
+        <img
+          src="${imagePath}"
+          alt="Suplemento Dietética Rabanal"
+          loading="lazy"
+        />
+      </button>
+      <div class="multivitamin-info">
+        <span>Suplemento</span>
+        <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer">
+          Consultar
+        </a>
+      </div>
+    </article>
+  `;
+}).join("");
 const productsHtml = products
   .map(
     (product, index) => `
@@ -393,7 +424,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
       </div>
 
       <div class="multivitamin-grid">
-        ${multivitamins}${newMultivitamins}
+        ${multivitamins}${newMultivitamins}${oct16Multivitamins}
       </div>
     </section>
 
